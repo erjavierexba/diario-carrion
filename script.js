@@ -89,8 +89,8 @@ function drawPet(frame = 0) {
   const pixel = 6;
   const ox = 12;
   const oy = frame % 20 < 10 ? 7 : 9;
-  const color = "#0b1c13";
-  const light = "#a7cf28";
+  const color = "#ffc400";
+  const light = "#090b0a";
   const pixels = [
     [3,0],[4,0],[5,0],[6,0],[7,0],[8,0],
     [2,1],[3,1],[4,1],[5,1],[6,1],[7,1],[8,1],[9,1],
@@ -280,9 +280,9 @@ function placeFood() {
 
 function drawSnake() {
   const ctx = snakeContext;
-  ctx.fillStyle = "#a7cf28";
+  ctx.fillStyle = "#090b0a";
   ctx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
-  ctx.strokeStyle = "rgba(11,28,19,.09)";
+  ctx.strokeStyle = "rgba(255,196,0,.1)";
   ctx.lineWidth = 1;
   for (let x = 0; x <= snakeCanvas.width; x += grid.size) {
     ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, snakeCanvas.height); ctx.stroke();
@@ -290,13 +290,13 @@ function drawSnake() {
   for (let y = 0; y <= snakeCanvas.height; y += grid.size) {
     ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(snakeCanvas.width, y); ctx.stroke();
   }
-  ctx.fillStyle = "#0b1c13";
+  ctx.fillStyle = "#ffc400";
   snake.forEach((part, index) => {
     const inset = index === 0 ? 1 : 2;
     ctx.fillRect(part.x * grid.size + inset, part.y * grid.size + inset, grid.size - inset * 2, grid.size - inset * 2);
   });
   ctx.fillRect(food.x * grid.size + 2, food.y * grid.size + 2, grid.size - 4, grid.size - 4);
-  ctx.fillStyle = "#a7cf28";
+  ctx.fillStyle = "#090b0a";
   ctx.fillRect(food.x * grid.size + 5, food.y * grid.size + 5, 2, 2);
 }
 
