@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#070908" />
+    <meta
+      name="description"
+      content="Rick, el Agente de Carrion: bitácora de misión y entretenimiento de carretera."
+    />
+    <title>RICK // Agente de Carrion</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="device-stage" aria-label="Agente personal de Carrion">
+      <p class="stage-label" aria-hidden="true">
+        <span>WITHERERS // MOBILE UNIT</span>
+        <span>RICK.AGENT</span>
+      </p>
+
+      <div class="device">
+        <img
+          class="device-photo"
+          src="assets/rick-device-transparent.webp"
+          width="1122"
+          height="1402"
+          alt="Agente industrial blanco, amarillo y negro visto completamente de frente"
+        />
+
+        <section class="rick-screen" aria-live="polite">
+          <div class="screen-glass" aria-hidden="true"></div>
+
+          <div class="view boot-view is-active" data-view="boot">
+            <div class="boot-mark">R</div>
+            <p class="boot-kicker">WITHERERS MOBILE SYSTEMS</p>
+            <h1>RICK<span class="blink">_</span></h1>
+            <div class="boot-pet" aria-hidden="true">▟■▙</div>
+            <div class="boot-log" id="bootLog">RECUPERANDO PERSONALIDAD...</div>
+            <div class="boot-track" aria-hidden="true"><span id="bootProgress"></span></div>
+            <button class="text-button boot-skip" id="bootSkip" type="button">OMITIR ARRANQUE</button>
+          </div>
+
+          <div class="view home-view" data-view="home">
+            <header class="status-bar">
+              <span id="statusTime">00:00</span>
+              <span class="status-name">RICK//OS</span>
+              <span class="battery" aria-label="Batería al 83 por ciento"><i></i></span>
+            </header>
+
+            <div class="home-scroll">
+              <section class="pet-panel" aria-label="Compañero virtual Rick">
+                <div class="pet-meta">
+                  <span>RICK</span>
+                  <span id="petMood">ESTABLE</span>
+                </div>
+                <button class="pet-button" id="petButton" type="button" aria-label="Hablar con Rick">
+                  <canvas id="petCanvas" width="96" height="80"></canvas>
+                </button>
+                <p class="pet-message" id="petMessage">Buenos días, Sheriff.</p>
+                <div class="pet-stats" aria-label="Estado de Rick">
+                  <span><i style="--level: 76%"></i>VÍNCULO</span>
+                  <span><i style="--level: 58%"></i>CAFÉ</span>
+                  <span><i style="--level: 91%"></i>SEÑAL</span>
+                </div>
+              </section>
+
+              <nav class="app-grid" aria-label="Aplicaciones">
+                <button class="app-button" type="button" data-open="sessions">
+                  <span class="app-icon folder-icon" aria-hidden="true"><i></i></span>
+                  <span>BITÁCORA</span>
+                </button>
+                <button class="app-button" type="button" data-open="snake">
+                  <span class="app-icon snake-icon" aria-hidden="true"><i></i></span>
+                  <span>SNAKE</span>
+                </button>
+                <button class="app-button" type="button" data-open="profile">
+                  <span class="app-icon id-icon" aria-hidden="true">WD</span>
+                  <span>CARRION</span>
+                </button>
+                <button class="app-button" type="button" data-open="system">
+                  <span class="app-icon system-icon" aria-hidden="true">R</span>
+                  <span>SISTEMA</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+
+          <div class="view sessions-view" data-view="sessions">
+            <header class="app-header">
+              <div>
+                <span class="eyebrow">ARCHIVO LOCAL</span>
+                <h2>Bitácora</h2>
+              </div>
+              <button class="close-button" type="button" data-close aria-label="Cerrar bitácora">×</button>
+            </header>
+            <div class="session-list">
+              <button class="session-card" id="openSession" type="button">
+                <span class="session-number">04</span>
+                <span class="session-info">
+                  <strong>CERO ABSOLUTO</strong>
+                  <small>11 ENTRADAS · REGISTRO COMPLETO</small>
+                  <i><span></span></i>
+                </span>
+                <span class="session-state">ABRIR</span>
+              </button>
+              <div class="empty-session">
+                <span>05</span>
+                <p>ESPERANDO<br />SINCRONIZACIÓN</p>
+              </div>
+            </div>
+            <footer class="app-footer">1 REGISTRO // 17.2 KB // LOCAL</footer>
+          </div>
+
+          <div class="view reader-view" data-view="reader">
+            <header class="reader-header">
+              <button class="reader-nav" id="readerPrev" type="button" aria-label="Entrada anterior">‹</button>
+              <div>
+                <span id="readerCounter">1 / 11</span>
+                <small>SESIÓN 04</small>
+              </div>
+              <button class="close-button" type="button" data-close="sessions" aria-label="Cerrar lectura">×</button>
+            </header>
+            <div class="reader-frame" id="readerFrame">
+              <div class="reader-track" id="readerTrack"></div>
+            </div>
+            <footer class="reader-controls">
+              <button class="reader-nav wide" id="readerNext" type="button">SIGUIENTE</button>
+              <div class="chapter-dots" id="chapterDots" aria-hidden="true"></div>
+            </footer>
+          </div>
+
+          <div class="view snake-view" data-view="snake">
+            <header class="app-header compact">
+              <div>
+                <span class="eyebrow">RICK ARCADE</span>
+                <h2>Snake</h2>
+              </div>
+              <div class="snake-score">PUNTOS <strong id="snakeScore">000</strong></div>
+              <button class="close-button" type="button" data-close aria-label="Cerrar Snake">×</button>
+            </header>
+            <div class="snake-shell">
+              <canvas id="snakeCanvas" width="288" height="216" aria-label="Tablero de Snake"></canvas>
+              <div class="snake-overlay" id="snakeOverlay">
+                <strong>SNAKE//77</strong>
+                <span>RUTAS, CARGA Y CERO COLISIONES.</span>
+                <button type="button" id="snakeStart">JUGAR</button>
+              </div>
+            </div>
+            <div class="dpad" aria-label="Controles de dirección">
+              <button type="button" data-direction="up" aria-label="Arriba">▲</button>
+              <button type="button" data-direction="left" aria-label="Izquierda">◀</button>
+              <button type="button" data-direction="down" aria-label="Abajo">▼</button>
+              <button type="button" data-direction="right" aria-label="Derecha">▶</button>
+            </div>
+            <p class="snake-hint">DESLIZA · WASD · FLECHAS</p>
+          </div>
+
+          <div class="view info-view" data-view="profile">
+            <header class="app-header">
+              <div><span class="eyebrow">ID DE CONDUCTOR</span><h2>Carrion</h2></div>
+              <button class="close-button" type="button" data-close aria-label="Cerrar perfil">×</button>
+            </header>
+            <div class="profile-card">
+              <div class="profile-avatar">C</div>
+              <div><strong>WILLIAM DAFOE</strong><span>NÓMADA // WITHERERS</span></div>
+            </div>
+            <dl class="data-list">
+              <div><dt>INDICATIVO</dt><dd>CARRION</dd></div>
+              <div><dt>ORIGEN</dt><dd>NEW VEGAS</dd></div>
+              <div><dt>VEHÍCULO</dt><dd>PICKUP // 160 KM/H</dd></div>
+              <div><dt>ESTADO</dt><dd class="good">SIGUE ADELANTE</dd></div>
+            </dl>
+            <p class="info-quote">«Alguien al que dieron por muerto. Alguien que decidió continuar.»</p>
+          </div>
+
+          <div class="view info-view" data-view="system">
+            <header class="app-header">
+              <div><span class="eyebrow">AGENTE PERSONAL</span><h2>Rick</h2></div>
+              <button class="close-button" type="button" data-close aria-label="Cerrar sistema">×</button>
+            </header>
+            <div class="system-mark">R</div>
+            <dl class="data-list system-data">
+              <div><dt>VOZ</dt><dd>RICK // MEMORIA LOCAL</dd></div>
+              <div><dt>ENLACE</dt><dd>PICKUP DE CARRION</dd></div>
+              <div><dt>CONTROL</dt><dd>LUCES · A/C · VENTANILLAS</dd></div>
+              <div><dt>CONDUCCIÓN</dt><dd class="warning">NO AUTORIZADA</dd></div>
+            </dl>
+            <button class="reset-button" id="replayBoot" type="button">REINICIAR SECUENCIA</button>
+          </div>
+
+          <div class="screen-noise" aria-hidden="true"></div>
+        </section>
+      </div>
+
+      <p class="stage-hint" aria-hidden="true">PULSA LA PANTALLA // EL AGENTE ESTÁ EN LÍNEA</p>
+    </main>
+
+    <noscript>Rick necesita JavaScript para iniciar su interfaz.</noscript>
+  </body>
+</html>
